@@ -1,4 +1,11 @@
 class Game < ApplicationRecord
+  validates :name, :category, presence: { message: 'Please write something!'}
+  validates :name, uniqueness: true
+  validates :rating, numericality: {
+    greater_than_or_equal_to: 0,
+    less_than_or_equal_to: 100,
+  }
+  
   has_many :involved_companies
   has_many :companies, through: :involved_companies
   has_and_belongs_to_many :platforms
