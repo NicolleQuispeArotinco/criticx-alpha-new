@@ -4,3 +4,6 @@
   <li>Start date: <%= @company.start_date %></li>
   <li>Country: <%= @company.country %></li>
 </ul>
+
+<%=link_to "Go back to Companies", companies_path%>
+<%=link_to "Delete this Company", company_path(@company), method: :delete, data: { confirm: "Really delete the company?" } %>
