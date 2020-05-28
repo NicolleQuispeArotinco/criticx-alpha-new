@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   validates :username, :email, presence: { message: 'Please write something!'}, uniqueness: true
 
   has_many :reviews
