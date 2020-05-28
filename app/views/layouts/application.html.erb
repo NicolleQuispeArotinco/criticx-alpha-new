@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <p><%= notice %></p>
+    <p><%= alert %></p>
+
+    <% if current_user %> 
+      Has iniciado sesión como <strong><%= current_user.username %></strong>! 
+      <%= link_to 'Log out', session_path, method: :delete %> 
+    <% else %> 
+      <%= link_to 'Log in', login_path%>
+      <%= link_to 'Sign up', new_user_path %> 
+    <% end %> 
     <%= yield %>
   </body>
 </html>
